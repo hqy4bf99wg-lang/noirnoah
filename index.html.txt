@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noah Rodriguez</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0b0b;
+  --text:#eaeaea;
+  --muted:#8a8a8a;
+  --line:rgba(255,255,255,.06);
+  --pill-border:rgba(255,255,255,.25);
+  --pill-bg:rgba(255,255,255,.05);
+}
+
+body.inverted{
+  --bg:#ffffff;
+  --text:#0b0b0b;
+  --muted:#666;
+  --line:rgba(0,0,0,.06);
+  --pill-border:rgba(0,0,0,.25);
+  --pill-bg:rgba(0,0,0,.05);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Inter, system-ui;
+  background:var(--bg);
+  color:var(--text);
+  transition:.35s ease;
+  overflow-x:hidden;
+}
+
+main{
+  max-width:720px;
+  margin:auto;
+  padding:72px 22px 64px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  gap:36px;
+  position:relative;
+}
+
+@media (max-width:600px){
+  main{
+    padding:56px 18px 56px;
+    gap:28px;
+  }
+}
+
+/* Eye */
+.eye-graphic{
+  position:absolute;
+  top:64px;
+  left:22px;
+  opacity:.32;
+  pointer-events:none;
+}
+
+@media (max-width:600px){
+  .eye-graphic{
+    top:32px;
+    left:18px;
+    opacity:.22;
+  }
+}
+
+
+/* Identity */
+
+.identity{
+  max-width:520px;
+  font-size:15px;
+  line-height:1.55;
+  color:var(--muted);
+  padding-left:0px;
+  margin-top:84px;
+}
+
+.identity .name{
+  font-family:"Playfair Display", serif;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text);
+}
+@media (max-width:600px){
+  .identity{
+    margin-top:64px;
+  }
+}
+
+
+/* Sections */
+.section{
+  border-top:1px solid var(--line);
+}
+
+.section button{
+  all:unset;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  padding:20px 0;
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  opacity:.6;
+  transition:opacity .25s ease;
+}
+.section button:hover,
+.section.open button{opacity:1}
+
+.section span{
+  transition:.35s ease;
+}
+.section.open span{
+  transform:rotate(90deg);
+}
+
+.content{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:
+    max-height .55s cubic-bezier(.4,0,.2,1),
+    opacity .35s ease;
+}
+.section.open .content{
+  max-height:420px;
+  opacity:1;
+}
+
+/* Links */
+.content a{
+  display:block;
+  padding:6px 0;
+  font-size:14px;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .2s ease, transform .25s ease;
+}
+.content a:hover{
+  color:var(--text);
+  transform:translateX(2px);
+}
+
+/* Floating Clock */
+.clock{
+  position:fixed;
+  bottom:26px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid var(--pill-border);
+  background:var(--pill-bg);
+  backdrop-filter: blur(10px);
+  font-size:13px;
+  font-variant-numeric: tabular-nums;
+  pointer-events:none;
+  z-index:10;
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+  <eye-graphic></eye-graphic>
+
+  <p class="identity">
+    <span class="name">Noah Rodriguez</span>
+    is an editor & art director based between New York and Tokyo. ★
+  </p>
+
+  <div class="section">
+    <button>Work <span>›</span></button>
+    <div class="content">
+      <a href="https://brutus.jp" target="_blank">Brutus Magazine</a>
+      <a href="https://shop.manualphoto.com" target="_blank">Manual NYC</a>
+      <a href="https://vsco.co/noahrdz/gallery" target="_blank">Photography</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <button>Get in touch <span>›</span></button>
+    <div class="content">
+      <a href="mailto:noahdamianr@aol.com">Email</a>
+      <a href="https://www.linkedin.com/in/noirnoah" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <button>Follow <span>›</span></button>
+    <div class="content">
+      <a href="https://instagram.com/noirnoah" target="_blank">Instagram</a>
+      <a href="https://twitter.com/Noahdamianr" target="_blank">Twitter</a>
+      <a href="https://weylandkonami.tumblr.com" target="_blank">Blog</a>
+      <a href="https://letterboxd.com/noirnoah/" target="_blank">Letterboxd</a>
+      <a href="https://goodreads.com/user/show/21930779-noah" target="_blank">Goodreads</a>
+      <a href="https://last.fm/user/leaf_kid" target="_blank">Last.fm</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <button>More <span>›</span></button>
+    <div class="content">
+      <a href="https://bandcamp.com/ishijima" target="_blank">Bandcamp</a>
+      <a href="https://anilist.co/user/leafkid/" target="_blank">Anilist</a>
+      <a href="https://co.pinterest.com/noahdamianr/" target="_blank">Mood-boards</a>
+    </div>
+  </div>
+
+</main>
+
+<span class="clock" id="clock">00:00:00</span>
+
+<template id="eye-graphic-template">
+  <style>
+    svg{width:96px;height:96px}
+    :host{--eye-color:currentColor}
+    [data-id="eye"],
+    [data-id="lids"]{
+      stroke:var(--eye-color);
+      stroke-width:3;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    .iris-outer,.iris-inner{
+      stroke:var(--eye-color);
+      stroke-width:3;
+      fill:none;
+    }
+    [data-id="pupil"]{
+      transform-origin:center;
+      transition:transform .08s linear;
+    }
+    @media (max-width:600px){
+      svg{width:64px;height:64px}
+    }
+  </style>
+
+  <svg viewBox="0 0 100 100">
+    <defs>
+      <clipPath id="eye-clip">
+        <path data-id="lids-clip"></path>
+      </clipPath>
+    </defs>
+
+    <path data-id="eye"
+      d="M10 50 C 30 20, 70 20, 90 50 C 70 80, 30 80, 10 50 Z"/>
+
+    <g clip-path="url(#eye-clip)">
+      <g data-id="pupil">
+        <circle class="iris-outer" cx="50" cy="50" r="18"/>
+        <circle class="iris-inner" cx="50" cy="50" r="7"/>
+      </g>
+    </g>
+
+    <path data-id="lids">
+      <animate data-id="animation" attributeName="d" dur="90ms" fill="freeze"/>
+    </path>
+  </svg>
+</template>
+
+<script>
+/* accordion */
+const sections=document.querySelectorAll('.section');
+sections.forEach(sec=>{
+  sec.querySelector('button').onclick=e=>{
+    e.stopPropagation();
+    sections.forEach(s=>s!==sec&&s.classList.remove('open'));
+    sec.classList.toggle('open');
+  };
+});
+
+/* theme toggle */
+document.body.addEventListener('click',e=>{
+  if(e.target.closest('a,button,.clock')) return;
+  document.body.classList.toggle('inverted');
+});
+
+/* clock */
+const clock=document.getElementById('clock');
+function updateClock(){
+  const n=new Date();
+  clock.textContent=
+  `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')}`;
+}
+updateClock();
+setInterval(updateClock,1000);
+
+/* floating clock (desktop only) */
+if (window.matchMedia("(pointer: fine)").matches) {
+  document.addEventListener("mousemove", e=>{
+    const x=(e.clientX/window.innerWidth-.5)*10;
+    const y=(e.clientY/window.innerHeight-.5)*10;
+    clock.style.transform=`translate(calc(-50% + ${x}px), ${y}px)`;
+  });
+}
+
+/* eye logic */
+const scale=8, blinkDuration=90, decay=.28;
+const pathOpen="M10 50 C 30 20, 70 20, 90 50 C 70 80, 30 80, 10 50 Z";
+const pathClosed="M10 50 C 30 50, 70 50, 90 50 C 70 50, 30 50, 10 50 Z";
+
+class EyeGraphic extends HTMLElement{
+  target={x:0,y:0};direction={x:0,y:0};
+  connectedCallback(){
+    this.attachShadow({mode:"open"});
+    this.shadowRoot.append(
+      document.getElementById("eye-graphic-template").content.cloneNode(true)
+    );
+    this.pupil=this.shadowRoot.querySelector('[data-id="pupil"]');
+    this.lids=this.shadowRoot.querySelector('[data-id="lids"]');
+    this.clip=this.shadowRoot.querySelector('[data-id="lids-clip"]');
+    this.anim=this.shadowRoot.querySelector('[data-id="animation"]');
+    this.lids.setAttribute("d",pathOpen);
+    this.clip.setAttribute("d",pathOpen);
+  }
+  animate(f,t){
+    this.lids.setAttribute("d",f);
+    this.clip.setAttribute("d",f);
+    this.anim.setAttribute("from",f);
+    this.anim.setAttribute("to",t);
+    this.anim.beginElement();
+    setTimeout(()=>{this.lids.setAttribute("d",t);this.clip.setAttribute("d",t)},blinkDuration);
+  }
+  blinkOnce(){
+    this.animate(pathOpen,pathClosed);
+    setTimeout(()=>this.animate(pathClosed,pathOpen),blinkDuration);
+  }
+  look(x,y){this.target={x,y}}
+  update(){
+    this.direction.x+=(this.target.x*scale-this.direction.x)*decay;
+    this.direction.y+=(this.target.y*scale-this.direction.y)*decay;
+    this.pupil.style.transform=`translate3d(${this.direction.x}px,${this.direction.y}px,0)`;
+  }
+}
+customElements.define("eye-graphic",EyeGraphic);
+
+const eye=document.querySelector("eye-graphic");
+(function loop(){eye.update();requestAnimationFrame(loop)})();
+setInterval(()=>eye.look(Math.random()*1.4-.7,Math.random()*1.4-.7),4200);
+setInterval(()=>eye.blinkOnce(),6800);
+</script>
+
+</body>
+</html>
